@@ -1,0 +1,93 @@
+<div class="main-content">
+    <div class="container-fluid">
+      <div class="card">
+          <div class="card-header card-header-danger">
+              <h4 class="card-title">Paramétre d'arrosage</h4>
+              <p class="card-category">Choisissez la mode et le début</p>
+          </div>
+          <div class="card-body">
+              <div id="typography">
+                  <div class="card-title">
+                      <h2>Paramétres</h2>
+                      
+                  </div>
+                  <div class="container">
+                      <div class="row">
+                        <div class="col-sm-3">
+                        </div>
+                        <div class="col-sm">
+                          <table class="table table-borderless">
+                              <tr><td colspan="2" align="center"><h2>Paramétres</h2></td></tr>
+                              <tr><td>Mode:</td><td><select   name="mode" class="form-control" [(ngModel)]="parametre.mode"><option selected="selectionner">selectionner</option><option value="manuelle">Manuelle</option><option value="automatique">automatique</option></select></td></tr>
+                              <tr><td>Répétition:</td><td><select   name="rep" class="form-control" [(ngModel)]="parametre.repetition"><option selected="aucune">aucune</option><option selected="quotidienne">quotidienne</option></select></td></tr>
+                              <tr><td>debut:</td><td><input type="datetime-local"   name="date" class="form-control" [(ngModel)]="parametre.debut"></td></tr>
+                              <tr><td>duree(minutes):</td><td><input type="number"   name="duree" class="form-control" [(ngModel)]="parametre.duree"></td></tr>
+                              <tr><td colspan="2" align="center">
+                                  <div *ngIf="!selected"><button (click)="add()" class="btn btn-danger">ajouter</button>
+                              </div>
+                                  <div *ngIf="selected"><button (click)="update()" class="btn btn-success">Modifer</button>&nbsp;&nbsp;
+                                      <button (click)="unselect()" class="btn btn-warning">Annuler</button>
+                              </div>
+                              
+                              
+                              </td></tr>
+          
+                          </table>                      </div>
+                        <div class="col-sm-3">
+                        </div>
+                      </div>
+                    </div>
+                 
+                  <div class="table-responsive">
+                      <table class="table">
+                          <thead class=" text-primary">
+                              <th>
+                                  ID
+                              </th>
+                              <th>
+                                  Mode
+                              </th>
+                              <th>
+                                  Début
+                              </th>
+                              <th>
+                                  Durée
+                              </th>
+                              <th>
+                                  répétition
+                              </th>
+                              <th>
+                                  Action
+                              </th>
+                          </thead>
+                          <tbody>
+                              <tr *ngFor="let us of parametres">
+                                  <td>
+                                      {{us.id}}
+                                  </td>
+                                  <td>
+                                      {{us.mode}}
+                                  </td>
+                                  <td>
+                                      {{us.debut}}
+                                  </td>
+                                  <td>
+                                      {{us.duree}}
+                                  </td>
+                                  <td>
+                                      {{us.repetition}}
+                                  </td>
+                                  <td class="text-primary">
+                                  <button class="btn btn-outline-danger" (click)="supprimer(us.id)"><i class="material-icons">delete</i></button>
+                              &nbsp;&nbsp;    <button class="btn btn-outline-success" (click)="select(us)"><i class="material-icons">visibility</i></button>
+                              </td>
+  
+                              </tr>
+                            
+                          </tbody>
+                      </table>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
