@@ -3,37 +3,48 @@
         <div class="row">
             <div class="col-md-12">
                 <!-- Button trigger modal -->
-                <div align ="center">
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-    Ajouter
-  </button>
-</div>
-  <!-- Modal -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Ajout de recommandation</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-            <form>
-                <table class="table table-borderless">
-                    <tr><td>Titre</td><td><input type="text" name="titre" class="form-control" placeholder="titre" [(ngModel)]="reclamation.titre"></td></tr>
-                    <tr><td>texte</td><td><textarea name="texte" class="form-control"  placeholder="texte" [(ngModel)]="reclamation.description"></textarea></td></tr>
-                </table>
+                <div align="center">
+                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal" *ngIf="grade=='user'">
+                        Repondre
+                    </button>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Ajout de recommandation</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <form>
+                                        <table class="table table-borderless">
+                                            <tr>
+                                                <td>Titre</td>
+                                                <td><input type="text" name="titre" class="form-control"
+                                                        placeholder="titre" [(ngModel)]="reclamation.titre"></td>
+                                            </tr>
+                                            <tr>
+                                                <td>texte</td>
+                                                <td><textarea name="texte" class="form-control" placeholder="texte"
+                                                        [(ngModel)]="reclamation.description"></textarea></td>
+                                            </tr>
+                                        </table>
 
 
-            </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
-          <button type="button" (click)="add()" class="btn btn-primary">Ajouter</button>
-        </div>
-      </div>
-    </div>
-  </div>
-               
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">Fermer</button>
+                                    <button type="button" (click)="add()" class="btn btn-primary">Ajouter</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="card">
                     <div class="card-header card-header-danger">
                         <h4 class="card-title ">Liste des Recommandation</h4>
@@ -43,10 +54,10 @@
                         <div class="table-responsive">
                             <table class="table">
                                 <thead class=" text-primary">
-                                   
-                                    <th>
+
+                                    <!-- <th>
                                         Id
-                                    </th>
+                                    </th> -->
                                     <th>
                                         Titre
                                     </th>
@@ -56,17 +67,17 @@
                                     <th>
                                         date
                                     </th>
-                                  
-                                    <th *ngIf="grade=='admin'" >
+
+                                    <th *ngIf="grade=='admin'">
                                         Action
                                     </th>
                                 </thead>
                                 <tbody>
                                     <tr *ngFor="let rec of reclamations">
-                                       
-                                        <td>
+
+                                        <!-- <td>
                                             {{rec.id}}
-                                        </td>
+                                        </td> -->
                                         <td>
                                             {{rec.titre}}
                                         </td>
@@ -76,19 +87,20 @@
                                         <td>
                                             {{rec.date | date:short}}
                                         </td>
-                                        
+
                                         <td *ngIf="grade=='admin'">
                                             <a class="btn btn-danger" (click)="delete(rec.id)">Supprimer</a>
+
                                         </td>
                                     </tr>
-                                   
+
                                 </tbody>
                             </table>
                         </div>
                     </div>
                 </div>
             </div>
-          
+
         </div>
     </div>
-  </div>
+</div>

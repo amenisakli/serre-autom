@@ -18,9 +18,7 @@ const routes: Routes =[
    
   },
  
-{
-  path:'login', component:InscriptionComponent,
-},
+
   {
     path: '',
     component: AdminLayoutComponent,

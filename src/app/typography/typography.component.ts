@@ -32,7 +32,7 @@ selected=false;
          debut: e.payload.doc.data()["debut"],
          duree: e.payload.doc.data()["duree"],
          repetition: e.payload.doc.data()["repetition"],
-        
+         dispositive: e.payload.doc.data()["dispositive"],
   
   
   
@@ -44,11 +44,7 @@ selected=false;
   
   
   }
-  supprimer(id)
-{
-  if(confirm("vous voulez supprimer cette configuration?"))
-  this.parametresService.delete_Parameters(id);
-}
+
 select(current)
 {
   this.parametre=current;
@@ -72,5 +68,10 @@ update()
   this.parametresService.update_Parameters(this.parametre.id,pr);
   this.parametre=new Parametres();
 
+}
+supprimer(id)
+{
+  if(confirm("vous voulez supprimer cette configuration?"))
+  this.parametresService.delete_Parameters(id);
 }
 }

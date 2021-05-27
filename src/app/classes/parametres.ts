@@ -5,5 +5,6 @@ export class Parametres {
         debut:string;
         duree:string;
         repetition:string;
+        dispositive:string;
     
 }

@@ -12,8 +12,8 @@ export const ROUTES: RouteInfo[] = [
     { path: '/profile', title: 'Profile',  icon:'person', class: '' },
     { path: '/utilisateur', title: 'utilisateur',  icon:'persons', class: '' },
     { path: '/parametres', title: 'parametres',  icon:'library_books', class: '' },
+    { path: '/reclamation', title: 'reclamation',  icon:'bubble_chart', class: '' },
     { path: '/supervision', title: 'supervision',  icon:'notifications', class: '' },
-    { path: '/reclamation', title: 'Reclamation',  icon:'notifications', class: '' },
     { path: '/', title: 'Déconnexion',  icon:'unarchive', class: 'active-pro' },
 ];
 
@@ -24,11 +24,14 @@ export const ROUTES: RouteInfo[] = [
 })
 export class SidebarComponent implements OnInit {
   menuItems: any[];
-
+grade:string;
   constructor() { }
 
   ngOnInit() {
+    this.grade=localStorage.getItem("grade");
     this.menuItems = ROUTES.filter(menuItem => menuItem);
+    if(this.grade!="admin")
+    this.menuItems.splice(2,2);
     if(localStorage.length==0)
     window.location.replace("");
   }
@@ -38,4 +41,5 @@ export class SidebarComponent implements OnInit {
       }
       return true;
   };
+
 }

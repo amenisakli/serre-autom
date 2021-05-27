@@ -1,12 +1,15 @@
 <div class="logo">
     <a href="https://www.creative-tim.com" class="simple-text">
         <div class="logo-img">
-            <img src="/assets/img/22.png"/>
+            <img src="./assets/img/22.png"/>
+            
         </div>
-Suivie IOT    </a>
+<div style="
+margin-left: 25px;
+">My Green House</div>    </a>
 </div>
 <div class="sidebar-wrapper">
-  <div *ngIf="isMobileMenu()">
+  <!-- <div *ngIf="isMobileMenu()">
     <form class="navbar-form">
       <span class="bmd-form-group">
         <div class="input-group no-border">
@@ -17,7 +20,7 @@ Suivie IOT    </a>
           </button>
         </div>
       </span>
-    </form>
+    </form> 
     <ul class="nav navbar-nav nav-mobile-menu">
         <li class="nav-item">
             <a class="nav-link" href="javascript:void(0)">
@@ -52,7 +55,7 @@ Suivie IOT    </a>
             </a>
         </li>
     </ul>
-  </div>
+  </div> -->
     <ul class="nav">
         <li routerLinkActive="active" *ngFor="let menuItem of menuItems" class="{{menuItem.class}} nav-item">
             <a class="nav-link" [routerLink]="[menuItem.path]">

@@ -4,24 +4,65 @@
 <!------ Include the above in your HEAD tag ---------->
 
 <div class="wrapper fadeInDown">
-  <div id="formContent">
+  <div id="formContent"  [ngStyle]="{backgroundImage:'url(assets/img/res.png)'}">
     <!-- Tabs Titles -->
 
     <!-- Icon -->
     <div class="fadeIn first">
-      <img src="./assets/img/123.jpg" id="icon" alt="User Icon" />
+      <!-- <img src="./assets/img/iot.jpg" id="icon" alt="User Icon" /> -->
     </div>
 
     <!-- Login Form -->
-    <form>
-      <input type="text" id="login" required [(ngModel)]="user.login" class="fadeIn second" name="login" placeholder="login">
-
-      <input type="password" id="password" required [(ngModel)]="user.mdp" class="fadeIn third" name="mdp" placeholder="mot de passe">
-      <input type="submit" (click)="verif()" class="fadeIn fourth" value="Log In">
-    </form>
-
-    <!-- Remind Passowrd -->
-    <div id="formFooter">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm">
+        </div>
+        <div class="col-sm">
+  
+          <form #myForm="ngForm" >
+              <span class="centered"><h2>Bienvenu</h2> </span>
+              <br>
+              
+                <label for="exampleInputEmail1" class="form-label">Login</label>
+                <input type="text" #login="ngModel" required [(ngModel)]="user.login" name="login" style="
+                padding-top: 0px;
+            " class="fadeIn second" id="exampleInputEmail1" >
+             
+              
+                <label for="exampleInputPassword1" class="form-label">Mot de passe</label>
+                <input type="password" #mdp="ngModel" required [(ngModel)]="user.mdp" class="fadeIn third" name="pass"  style="
+                padding-top: 0px;
+            " id="exampleInputPassword1">
+              
+              
+                <input type="submit" (click)="verif()"  class="fadeIn fourth" style="
+                padding-top: 0px;
+            "  value="Login">
+  
+            </form> 
+            
+            <div *ngIf="login.invalid && (login.dirty || login.touched)" class="alert alert-danger">
+              <div *ngIf="login.errors.required">
+              la login est obligatoire.
+              </div>
+              <div *ngIf="login.errors.pattern">
+              vérifiez le login
+              </div>
+            </div>
+            <div *ngIf="mdp.invalid && (mdp.dirty || mdp.touched)" class="alert alert-danger">
+              <div *ngIf="mdp.errors.required">
+              la mot de passe est obligatoire.
+              </div>
+              <div *ngIf="mdp.errors.pattern">
+              vérifiez le mot de passe
+              </div>
+            </div>
+          
+          
+          </div>
+        <div class="col-sm">
+        </div>
+      </div>
     </div>
 
   </div>
